@@ -22,14 +22,6 @@ class Game
     play()
   end
 
-  def display
-    puts "\n"
-    puts "---------------------------------"
-    @numPlayers.times { |playerNum|
-      puts "\tPlayer #{playerNum} at #{@score[playerNum]}"
-    }
-    puts "----------------------------------"
-  end
 
   def inGame?(playerNum)
     puts "\n***Turn for player #{playerNum}***"
@@ -58,7 +50,7 @@ class Game
     winner = 0 
     playerNum = 0
     while (@score[playerNum] < 3000)
-      display()
+      displayStats()
 
       # Check if the player in Game .If not give him chances to cross 300 threshold.
       while(!inGame?(playerNum))
@@ -91,7 +83,7 @@ class Game
 
     
     puts "\n\n** Final Round of Game **"
-    display()
+    displayStats()
 
     (@numPlayers - 1).times do
       playerNum = (playerNum + 1) % @numPlayers
@@ -118,6 +110,17 @@ class Game
     end
     declareWinner()
   end
+
+
+  def displayStats
+    puts "\n"
+    puts "---------------------------------"
+    @numPlayers.times { |playerNum|
+      puts "\tPlayer #{playerNum} at #{@score[playerNum]}"
+    }
+    puts "----------------------------------"
+  end
+
 
   def declareWinner
     winner = 0 #Default = Player 0

@@ -92,7 +92,7 @@ class Game
       remaining = 5
       while remaining != 0 do
         roll_score, remaining = dices.roll(remaining)
-        puts "You scored #{roll_score} with #{remaining} unscored dices."
+        puts "Player#{playerNum} scored #{roll_score} with #{remaining} unscored dices."
 
         if (roll_score == 0)
           round_score = 0
@@ -130,7 +130,7 @@ class Game
       end
     end
     displayStats()
-    puts "\n\n Winner : #{winner} Score : #{@score[winner]}!"
+    puts "\n\n Winner : Player #{winner} Score : #{@score[winner]}!"
   end
 end    
 

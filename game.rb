@@ -102,7 +102,7 @@ class Game
           choice = gets.chomp()
           print "Y to roll the #{remaining} dices. N to stop turn:  "
           choice = gets.chomp()
-          break if choice == "N"
+          break if choice == "N" || choice == 'n'
         end
       end
       puts "Round score for player #{playerNum} is #{round_score}"
@@ -129,9 +129,8 @@ class Game
         winner = playerNum
       end
     end
+    displayStats()
     puts "\n\n Winner : #{winner} Score : #{@score[winner]}!"
   end
 end    
 
-g1 = Game.new
-g1.begin_game()
